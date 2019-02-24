@@ -20,6 +20,16 @@ const MY_FORMATS = {
   },
 };
 
+class AdpDateAdapter extends MomentDateAdapter {
+  constructor(dateLocale: string) {
+    super(dateLocale);
+  }
+
+  getFirstDayOfWeek(): number {
+    return 1;
+  }
+}
+
 
 @NgModule({
   declarations: [
@@ -34,8 +44,8 @@ const MY_FORMATS = {
     MatMomentDateModule
   ],
   providers: [
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
+    { provide: DateAdapter, useClass: AdpDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
   ],
   bootstrap: [AppComponent]
 })
