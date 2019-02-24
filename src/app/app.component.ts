@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Moment } from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -18,5 +19,11 @@ export class AppComponent {
     }
 
     return typeof this.dateValue;
+  }
+
+
+  onDateChange(value: Moment) {
+    const date: Date = value.toDate();
+    console.log(date);
   }
 }
