@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  dateValue: any;
+
+  getDateValueType(): string {
+    if (this.dateValue === null) {
+      return 'null';
+    }
+
+    if (this.dateValue === undefined) {
+      return 'undefined';
+    }
+
+    return typeof this.dateValue;
+  }
 }
